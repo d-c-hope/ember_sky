@@ -1,0 +1,153 @@
+@import 'reset';
+
+$headColor: rgb(233, 255, 187);
+$headTextColor: blue;
+$subsectionBGColor: rgb(231, 248, 255);
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+div.page {
+	padding: 30px 20px 30px 20px;
+	width: 900px;
+	
+	h1 {
+		color:blue;
+		font-size: 28pt;
+		padding-bottom: 20px;
+	}
+	
+	h2 {
+		font-size: 16pt;
+		font-weight: bold;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		color:blue;
+	}
+	
+	table {
+		width: 60%;
+	}
+	th {
+		text-align: left;
+		font-size: 14px;
+	}
+	td { 
+		padding: 3px;
+		font-size: 13px;	
+	}
+}
+
+
+div.summary {
+	background-color: $subsectionBGColor;
+	padding: 10px;
+	font-size: 18pt;
+	margin-bottom: 20px;
+	
+	div.summaryItem {
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+	
+	span.name {
+		width: 200px;
+		display:inline-block;
+	}
+	
+}
+
+
+
+
+div.billSection {
+	background-color: $subsectionBGColor;
+	padding: 10px;
+	font-size: 16pt;
+	margin-bottom: 20px;
+	
+	h3 {
+		font-size: 15pt;
+		font-weight: bold;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	
+	div.subSection{
+		margin-left: 30px;
+	}
+	
+}
+
+
+div.line {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		
+		span.item1 {
+			width: 150px;
+			display:inline-block;
+		}
+		span.item1long {
+			width: 250px;
+			display:inline-block;
+		}
+		span.item2 {
+			width: 240px;
+			display:inline-block;
+		}
+		span.item3 {
+			width: 200px;
+			display:inline-block;
+		}
+}
+
+
+
+div.genericButton {
+	padding-bottom: 6px;
+	padding-top: 6px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+	
+	span.genericButton {
+	
+		background-color: #34C23A;
+		padding: 6px 15px 6px 15px;
+		color: white;
+		font-size: 16pt;
+		border-radius: 3px;
+		/* width: 90px; */
+		text-align: center; 
+	
+	}
+	span.genericButton:hover {
+		background-color: #64DA75;
+	}
+	a{
+		text-decoration:none;
+		color: white;
+	}
+	
+}
+
+
+
+img.topSkyLogo {
+	float:right;
+}
+

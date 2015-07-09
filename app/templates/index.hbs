@@ -1,4 +1,90 @@
-<h1>Your sky bill</h1>
-<div>The billing period was from {{model.statement.period.from}} to {{model.statement.period.to}}</div>
-<div>Payment is due on {{model.statement.due}}</div>
+<img width="80" class="topSkyLogo" src="assets/images/Sky-logo.png"/>
+<h1>Accounts : your sky bill</h1>
+
+
+<div class=summary>
+	<div class="summaryItem"><span class="name">Total:</span><span class="value">&pound;{{model.total}}</span> </div>
+	<div class="summaryItem"><span class="name">Billing period:</span><span class="value">{{model.statement.period.from}} to {{model.statement.period.to}}</span> </div>
+	<div class="summaryItem"><span class="name">Payment is due on:</span><span class="value">{{model.statement.due}}</span> </div>
+</div> 
+
+
+<div class="billSection">
+<h2>Package</h2>
+<div class="line">
+	<span class="item1">Total:</span>
+	<span class="item3">&pound;{{model.package.total}}</span>
+</div>
+
+{{#each model.package.subscriptions as |subscription|}}
+  	<div class="line">
+		<span class="item1">{{first-capitalize subscription.type}}</span>
+		<span class="item2">{{subscription.name}}</span>
+		<span class="item3">&pound;{{subscription.cost}}</span>
+    </div>
+{{/each}}
+</div>
+
+
+<div class="billSection">
+<h2>Call charges</h2>
+<div class="line">
+	<span class="item1">Total:</span>
+	<span class="item3">&pound;{{model.callCharges.total}}</span>
+</div>
+
+{{#if displayAllCalls}}
+	<table>
+	  <tr>
+	    <th>Number</th>
+	    <th>Duration</th> 
+	    <th>Cost</th>
+	  </tr>
+	  {{#each model.callCharges.calls as |charge|}}
+		  <tr class="phonecall">
+		    <td>{{charge.called}}</td>
+		    <td>{{charge.duration}}</td> 
+		    <td>{{charge.cost}}</td>
+		  </tr>
+	  {{/each}}
+	</table>
+{{/if}}
+<div class="genericButton">
+	<span id="filtersButton" class="genericButton" {{action 'toggleAllCalls'}}>{{callsButtonText}}</span>
+</div>
+
+</div>
+
+
+<div class="billSection">
+	<h2>Sky Store</h2>
+	<div class="line">
+		<span class="item1">Total:</span>
+		<span class="item3">&pound;{{model.callCharges.total}}</span>
+	</div>
+	<h3>Rentals :</h3> 
+	<div class="subSection">
+		{{#each model.skyStore.rentals as |rental|}}
+		  	<div class="line">
+				<span class="item1long">{{rental.title}}</span>
+				<span class="item2">&pound;{{rental.cost}}</span>
+		    </div>
+		  {{else}}
+		  None
+		{{/each}}
+	</div>
+	
+	<h3>Buy and Keep :</h3>
+	<div class="subSection">
+		{{#each model.skyStore.buyAndKeep as |buyKeep|}}
+		  	<div class="line">
+				<span class="item1long">{{buyKeep.title}}</span>
+				<span class="item2">&pound;{{buyKeep.cost}}</span>
+		    </div>
+		{{else}}
+			None
+		{{/each}}
+	</div>
+</div>
+
 

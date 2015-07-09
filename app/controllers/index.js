@@ -1,21 +1,25 @@
 import Ember from 'ember';
-import Account from 'sky-bill/models/account';
+
 
 
 export default Ember.Controller.extend({
   
-  search: 'xcxzcxzx',
+  displayAllCalls : false,
+  
+  callsButtonText : function() {
+	  if (this.get('displayAllCalls')) {return "Hide Calls";}
+	  else {return "Show Calls";}
+  }.property('displayAllCalls'),
 
   setup: function() {
-	  this.acc = Account.create({firstName:"david"});
   },
   
   actions: {
-    
+    toggleAllCalls : function() {
+    	if (this.get('displayAllCalls')) {this.set('displayAllCalls', false);}
+    	else {this.set('displayAllCalls', true);}
+    }
   },
   
-//  duration: function() {
-//	 return this.get('model');
-//  }.property('model'),
   
 });

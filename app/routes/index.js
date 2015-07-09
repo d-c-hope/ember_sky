@@ -1,12 +1,17 @@
 import Ember from 'ember';
+import Bill from 'sky-bill/models/bill';
+
 
 export default Ember.Route.extend({
-//  setupController: function(controller) {
-//    // Set the IndexController's `title`
-//    controller.setup();
-//  },
+  setupController: function(controller, model) {
+	  controller.set('model', model);
+	  controller.setup();
+  },
   model: function() {
-	  console.log("in modelsssssssss");
-	  return Ember.$.getJSON('http://safe-plains-5453.herokuapp.com/bill.json');
+	  
+	  return Ember.$.getJSON('http://safe-plains-5453.herokuapp.com/bill.json').then(function(data) {
+	      return Bill.create(data);
+	  });	 
+
   }
 });
