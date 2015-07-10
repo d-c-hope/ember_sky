@@ -1,11 +1,8 @@
 import Ember from 'ember';
 
 
-//Objects of this type are used in the persistance.js file. They should have
-//at least one property: '_id' which gives each object of a given
-//type a unique identifier. Any properties to be persisted to the server like '_id'
-//should have their name included in the persistableProperties array too so that functions
-//like toJson know which properties to put in the json
+// Adds some useful features to Ember Object like the ability to easily copy
+// an object or turn it into a basic objet or json
 var PersistObject = Ember.Object.extend(Ember.Copyable, {
 	
 	id: -1,
