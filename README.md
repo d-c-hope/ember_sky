@@ -37,6 +37,10 @@ at:
 
 for how to get this.
 
+You will also need to install ember-sinon for the integration tests
+
+* ember install ember-sinon
+
 You can build with:
 
 * `ember build` (development)
